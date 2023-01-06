@@ -12,9 +12,9 @@ enum {
 
 func CreatePart(x,y,part):
 	CurrentPlacingPosition += 1
-	set_cell(x+CurrentPlacingPosition,y,part)
+	set_cell(x,y,part)
 	print("X: ",x," Y: ",y)
-	
+
 func _ready():
 	for Part in StartPlatformPieces:
 		CreatePart(StartPlatformPosition, StartPlatformPosition, Part)
