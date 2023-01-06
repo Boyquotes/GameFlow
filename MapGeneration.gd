@@ -3,15 +3,18 @@ extends TileMap
 var StartPlatformPosition = 5
 var StartPlatformPieces = 5
 
+var CurrentPlacingPosition = 0
+
 enum {
 	Part = 0,
 }
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	var CurrentPlacingPosition = 0
+
+func CreatePart(x,y,part):
+	CurrentPlacingPosition += 1
+	set_cell(x+CurrentPlacingPosition,y,part)
+	print("X: ",x," Y: ",y)
 	
+func _ready():
 	for Part in StartPlatformPieces:
-		set_cell(CurrentPlacingPosition,StartPlatformPosition,Part)
-		print(CurrentPlacingPosition)
-		CurrentPlacingPosition += 1
+		CreatePart(StartPlatformPosition, StartPlatformPosition, Part)
