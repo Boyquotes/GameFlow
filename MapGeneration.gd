@@ -2,17 +2,16 @@ extends TileMap
 
 var StartPlatformPosition = 5
 var StartPlatformPieces = 5
+var StartPlatformDepth = 3
 
-var CurrentPlacingPosition = 0
+var CurrentPlacingPositionX = 0
+var CurrentPlacingPositionY = 0
+
+var GeneratingCell = Vector2(0,0)
 
 enum {
 	Part = 0,
 }
-
-<<<<<<< Updated upstream
-=======
-func CreatePlatForm(length,x,y):
-	print(length,x,y)
 
 func CreateStartPlatform(x,y):
 	CurrentPlacingPositionX += 1
@@ -32,13 +31,7 @@ func _physics_process(delta):
 		CreatePart(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
 		
 		GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
->>>>>>> Stashed changes
 
-func CreatePart(x,y,part):
-	CurrentPlacingPosition += 1
-	set_cell(x+CurrentPlacingPosition,y,part)
-	print("X: ",x," Y: ",y)
-	
 func _ready():
 	for Part in StartPlatformPieces:
-		CreatePart(StartPlatformPosition, StartPlatformPosition, Part)
+		CreateStartPlatform(CurrentPlacingPositionX, StartPlatformPosition)
