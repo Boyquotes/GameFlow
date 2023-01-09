@@ -1,15 +1,34 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GameFlowTileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://MapGeneration.gd" type="Script" id=2]
+[ext_resource path="res://Images/ak47.png" type="Texture" id=3]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
+show_collision = true
+collision_use_kinematic = true
 format = 1
 script = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 1.00002, 0.999992 )
+scale = Vector2( 0.128571, 0.104563 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+scale = Vector2( 1, 0.5 )
 current = true
+zoom = Vector2( 0.5, 0.5 )

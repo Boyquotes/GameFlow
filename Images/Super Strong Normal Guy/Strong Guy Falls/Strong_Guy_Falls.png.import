@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Platformer_Part.png-5ae9423c413d4a26335cc711c247a128.stex"
+path="res://.import/Strong_Guy_Falls.png-c5897027d361541e78fd20bb17e99542.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Platformer_Part.png"
-dest_files=[ "res://.import/Platformer_Part.png-5ae9423c413d4a26335cc711c247a128.stex" ]
+source_file="res://Images/Super Strong Normal Guy/Strong Guy Falls/Strong_Guy_Falls.png"
+dest_files=[ "res://.import/Strong_Guy_Falls.png-c5897027d361541e78fd20bb17e99542.stex" ]
 
 [params]
 

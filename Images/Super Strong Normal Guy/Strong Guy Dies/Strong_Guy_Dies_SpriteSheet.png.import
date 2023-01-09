@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Platformer_Part.png-5ae9423c413d4a26335cc711c247a128.stex"
+path="res://.import/Strong_Guy_Dies_SpriteSheet.png-0d6b40042929ccb34dedd4f7e8d61996.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Platformer_Part.png"
-dest_files=[ "res://.import/Platformer_Part.png-5ae9423c413d4a26335cc711c247a128.stex" ]
+source_file="res://Images/Super Strong Normal Guy/Strong Guy Dies/Strong_Guy_Dies_SpriteSheet.png"
+dest_files=[ "res://.import/Strong_Guy_Dies_SpriteSheet.png-0d6b40042929ccb34dedd4f7e8d61996.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
