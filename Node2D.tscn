@@ -2,7 +2,7 @@
 
 [ext_resource path="res://GameFlowTileMap.tres" type="TileSet" id=1]
 [ext_resource path="res://MapGeneration.gd" type="Script" id=2]
-[ext_resource path="res://Images/Platformer_Part.png" type="Texture" id=3]
+[ext_resource path="res://Images/ak47.png" type="Texture" id=3]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -21,11 +21,14 @@ script = ExtResource( 2 )
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 1.00002, 0.999992 )
+scale = Vector2( 0.128571, 0.104563 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+scale = Vector2( 1, 0.5 )
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 0.5, 0.5 )

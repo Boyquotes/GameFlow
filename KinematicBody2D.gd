@@ -12,8 +12,6 @@ var motion = Vector2()
 
 # Player Camera #
 onready var PlayerCamera = $Camera2D
-const CameraMaxZoom = 0.6
-const CameraMinZoom = 0.3
 
 func _physics_process(_delta):
 	
