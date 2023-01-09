@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://GameFlowTileMap.tres" type="TileSet" id=1]
+[ext_resource path="res://MapGeneration.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
 
@@ -8,3 +9,7 @@
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
+script = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
