@@ -25,11 +25,16 @@ func CreateStartPlatform(x,y):
 func CreatePart(x,y):
 	set_cell(x,y,Part)
 	
+func CreatePlatform(length,x,y):
+	for i in length:
+		set_cell(x + CurrentPlacingPositionX,y,Part)
+		CurrentPlacingPositionX += 1
+	
 func _physics_process(delta):
 	if Generating:
 		var PlacingOffsetX = 5
-		var PlacingOffsetY = randi()%15
-		CreatePart(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
+		var PlacingOffsetY = randi()%4
+		CreatePlatform(randi()%4,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
 		
 		GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
 
