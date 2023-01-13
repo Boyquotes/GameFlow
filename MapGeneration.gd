@@ -8,6 +8,7 @@ var CurrentPlacingPositionX = 0
 var CurrentPlacingPositionY = 0
 
 var GeneratingCell = Vector2(0,0)
+var Generating = false
 
 enum {
 	Part = 0,
@@ -24,14 +25,20 @@ func CreateStartPlatform(x,y):
 func CreatePart(x,y):
 	set_cell(x,y,Part)
 	
+func CreatePlatform(length,x,y):
+	for i in length: 
+		set_cell(x + CurrentPlacingPositionX,y,Part)
+		CurrentPlacingPositionX += 1
+	
 func _physics_process(delta):
-	if(Input.is_action_pressed("mb_right")):
-		var PlacingOffsetX = 5
-		var PlacingOffsetY = 5
-		CreatePart(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
+	if Generating:
+		var PlacingOffsetX = 4
+		var PlacingOffsetY = randi()%4
+		CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
 		
 		GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
 
 func _ready():
+	Generating = true
 	for Part in StartPlatformPieces:
 		CreateStartPlatform(CurrentPlacingPositionX, StartPlatformPosition)
