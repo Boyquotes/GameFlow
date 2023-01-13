@@ -33,8 +33,8 @@ func move_state(input):
 		input_jump() #handles jump logic
 	else:  
 		animatedSprite.animation = "Jump"
-		if Input.is_action_just_released("ui_up") and velocity.y < -300: #if the character is on floor, checks for jump input and applies jumpe force to character if detected
-			velocity.y = -300
+		if Input.is_action_just_released("ui_up") and velocity.y < -250: #if the character is on floor, checks for jump input and applies jumpe force to character if detected
+			velocity.y = -250
 			
 		
 		if velocity.y  > 10 and not fast_fell: #If the character is falling at a high speed and the "fast fell" flag is not set, the function applies additional gravity to the character to increase their falling.
@@ -53,7 +53,7 @@ func move_state(input):
 	var just_left_ground = not is_on_floor() and was_on_floor
 func input_jump():
 	if Input.is_action_just_pressed("ui_up"):
-		velocity.y = -300
+		velocity.y = -250
 
 func apply_gravity():
 	velocity.y += 5
@@ -61,7 +61,7 @@ func apply_gravity():
 func apply_friction():
 	velocity.x = move_toward(velocity.x, 0, 10)
 func apply_acceleration(amount):
-	velocity.x = move_toward(velocity.x, 75 * amount, 10)
+	velocity.x = move_toward(velocity.x, 150 * amount, 10)
 func player_dies():
 	queue_free()
 	animatedSprite.animation = "Die"

@@ -9,6 +9,7 @@ var CurrentPlacingPositionY = 0
 
 var GeneratingCell = Vector2(0,0)
 var Generating = false
+var SelectedColor
 
 enum {
 	Purple_Part = 0,
@@ -20,24 +21,24 @@ enum {
 
 func CreateStartPlatform(x,y):
 	CurrentPlacingPositionX += 1
-	set_cell(x,y,Green_Part)
+	set_cell(x,y,SelectedColor)
 	
 	if CurrentPlacingPositionX == StartPlatformPieces:
 		GeneratingCell = Vector2(x,y)
 		CurrentPlacingPositionX = 0
 		
 func CreatePart(x,y):
-	set_cell(x,y,Green_Part)
+	set_cell(x,y,SelectedColor)
 	
 func CreatePlatform(length,x,y):
 	for i in length: 
-		set_cell(x + CurrentPlacingPositionX,y,Green_Part)
+		set_cell(x + CurrentPlacingPositionX,y,SelectedColor)
 		CurrentPlacingPositionX += 1
 	
 func _physics_process(delta):
 	if Generating:
 		var PlacingOffsetX = 4
-		var PlacingOffsetY = randi()%9
+		var PlacingOffsetY = randi()%5
 		var SelectionY = randi()%2
 		
 		if SelectionY == 0:
@@ -49,6 +50,7 @@ func _physics_process(delta):
 
 func _ready():
 	randomize()
+	SelectedColor = randi()%5
 	Generating = true
 	for Part in StartPlatformPieces:
 		CreateStartPlatform(CurrentPlacingPositionX, StartPlatformPosition)
