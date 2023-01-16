@@ -11,6 +11,8 @@ var GeneratingCell = Vector2(0,0)
 var Generating = false
 var SelectedColor
 
+var SpawnLocation
+
 enum {
 	Purple_Part = 0,
 	Red_Part = 1,
@@ -19,10 +21,15 @@ enum {
 	Blue_Part = 4,
 }
 
+onready var player : KinematicBody2D = get_node("../Player")
+
 func CreateStartPlatform(x,y):
 	CurrentPlacingPositionX += 1
 	set_cell(x,y,SelectedColor)
 	
+	if CurrentPlacingPositionX == 3:
+		SpawnLocation = Vector2(x,y)
+
 	if CurrentPlacingPositionX == StartPlatformPieces:
 		GeneratingCell = Vector2(x,y)
 		CurrentPlacingPositionX = 0
@@ -36,6 +43,10 @@ func CreatePlatform(length,x,y):
 		CurrentPlacingPositionX += 1
 	
 func _physics_process(delta):
+	
+	if Input.is_action_just_pressed("r"):
+		player.position = SpawnLocation
+	
 	if Generating:
 		var PlacingOffsetX = 4
 		var PlacingOffsetY = randi()%5
