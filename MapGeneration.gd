@@ -11,17 +11,17 @@ var GeneratingCell = Vector2(0,0)
 var Generating = false
 var SelectedColor
 
-var SpawnLocation
-
 enum {
 	Purple_Part = 0,
 	Red_Part = 1,
 	Orange_Part = 2,
 	Green_Part = 3,
 	Blue_Part = 4,
+	Doping_Test = 5,
 }
 
 onready var player : KinematicBody2D = get_node("../Player")
+onready var SpawnLocation = player.position
 
 func CreateStartPlatform(x,y):
 	CurrentPlacingPositionX += 1
@@ -37,9 +37,15 @@ func CreateStartPlatform(x,y):
 func CreatePart(x,y):
 	set_cell(x,y,SelectedColor)
 	
-func CreatePlatform(length,x,y):
-	for i in length: 
+func CreatePlatform(length,x,y):	
+	for i in length:
 		set_cell(x + CurrentPlacingPositionX,y,SelectedColor)
+		
+		if randi()%2 == 1:
+			randomize()
+			if get_cell(x,y) == SelectedColor:
+				set_cell(x,y-1,Doping_Test)
+		
 		CurrentPlacingPositionX += 1
 	
 func _physics_process(delta):
@@ -51,7 +57,6 @@ func _physics_process(delta):
 		var PlacingOffsetX = 4
 		var PlacingOffsetY = randi()%5
 		var SelectionY = randi()%2
-		
 		if SelectionY == 0:
 			CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
 			GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
