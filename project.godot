@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Player.gd"
+"path": "res://Scripts/Player.gd"
 } ]
 _global_script_class_icons={
 "GitAPI": "",
@@ -27,8 +27,12 @@ _global_script_class_icons={
 [application]
 
 config/name="GameFlow"
-run/main_scene="res://Node2D.tscn"
+run/main_scene="res://Scenes/StartScreen.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/resizable=false
 
 [editor]
 
@@ -38,6 +42,11 @@ version_control_plugin_name="GitAPI"
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[layer_names]
+
+2d_physics/layer_1="main"
+2d_physics/layer_2="secondary"
 
 [physics]
 
