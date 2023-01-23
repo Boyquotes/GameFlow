@@ -391,7 +391,7 @@ position = Vector2( 522, 195 )
 scale = Vector2( 23.8495, 22.1819 )
 frames = SubResource( 73 )
 animation = "Tren"
-frame = 26
+frame = 4
 speed_scale = 2.0
 playing = true
 
