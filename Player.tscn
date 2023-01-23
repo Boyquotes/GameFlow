@@ -259,20 +259,21 @@ animations = [ {
 extents = Vector2( 10.738, 22 )
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 40, -58 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 5.68434e-14, 1 )
-scale = Vector2( 2.11111, 2.11111 )
+position = Vector2( 0, 3 )
+scale = Vector2( 1.22222, 1.66425 )
 frames = SubResource( 9 )
 animation = "Idle"
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.738024, 1 )
-shape = SubResource( 46 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 1.2, 1.2 )
+zoom = Vector2( 0.7, 0.7 )
 process_mode = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.738026, 1 )
+shape = SubResource( 46 )
