@@ -14,9 +14,9 @@ script = ExtResource( 2 )
 position = Vector2( 2, 49 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 2, 28 )
-scale = Vector2( 0.417582, 0.446429 )
+[node name="Tren" type="Sprite" parent="."]
+position = Vector2( 1, 27 )
+scale = Vector2( 0.35989, 0.439286 )
 texture = ExtResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_tren_body_entered"]
