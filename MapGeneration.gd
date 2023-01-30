@@ -51,7 +51,7 @@ func CreatePlatform(length,x,y):
 		
 		CurrentPlacingPositionX += 1
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("r"):
 		player.position = SpawnLocation
