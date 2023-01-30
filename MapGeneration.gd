@@ -21,6 +21,7 @@ enum {
 }
 
 onready var player : KinematicBody2D = get_node("../Player")
+const tester = preload("restart.tscn")
 onready var SpawnLocation = player.position
 
 func CreateStartPlatform(x,y):
@@ -43,8 +44,10 @@ func CreatePlatform(length,x,y):
 		
 		if randi()%2 == 1:
 			randomize()
-			if get_cell(x,y) == SelectedColor:
-				set_cell(x,y-1,Doping_Test)
+			var testcap = tester.instance()
+			get_parent().add_child(testcap)
+			
+			testcap.position = map_to_world(Vector2(x,y))
 		
 		CurrentPlacingPositionX += 1
 	

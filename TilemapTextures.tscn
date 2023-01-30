@@ -5,7 +5,7 @@
 [ext_resource path="res://Images/part_green.png" type="Texture" id=3]
 [ext_resource path="res://Images/part_orange.png" type="Texture" id=4]
 [ext_resource path="res://Images/part_blue.png" type="Texture" id=5]
-[ext_resource path="res://Images/tester.png" type="Texture" id=6]
+[ext_resource path="res://restart.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -56,6 +56,4 @@ texture = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite5/StaticBody2D"]
 shape = SubResource( 1 )
 
-[node name="Sprite6" type="Sprite" parent="."]
-position = Vector2( 80, 0 )
-texture = ExtResource( 6 )
+[node name="Sprite6" parent="." instance=ExtResource( 6 )]
