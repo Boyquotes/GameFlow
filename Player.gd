@@ -65,3 +65,6 @@ func apply_acceleration(amount):
 func player_dies():
 	queue_free()
 	animatedSprite.animation = "Die"
+	
+
+	
