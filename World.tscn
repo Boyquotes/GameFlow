@@ -14,19 +14,10 @@ extents = Vector2( 43, 24 )
 
 [node name="World" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -469.0
-margin_top = 383.0
-margin_right = 2.39995e+07
-margin_bottom = 899.0
-color = Color( 0, 0, 0, 1 )
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-margin_left = -469.0
-margin_top = -881.0
-margin_right = 2.39995e+07
-margin_bottom = -181.0
-color = Color( 0, 0, 0, 1 )
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
+offset = Vector2( -470, -400 )
+scale = Vector2( 1.2, 1.2 )
+transform = Transform2D( 1.2, 0, 0, 1.2, -470, -400 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -38,16 +29,11 @@ script = ExtResource( 3 )
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource( 2 )]
 
-[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
-offset = Vector2( -470, -400 )
-scale = Vector2( 1.2, 1.2 )
-transform = Transform2D( 1.2, 0, 0, 1.2, -470, -400 )
-
 [node name="tren" parent="." instance=ExtResource( 5 )]
 position = Vector2( -165, -119 )
 
 [node name="fallzone" type="Area2D" parent="."]
-position = Vector2( 42, 422 )
+position = Vector2( 55, 553 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
