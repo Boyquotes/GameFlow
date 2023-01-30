@@ -12,6 +12,6 @@ position = Vector2( 42, -64 )
 shape = SubResource( 1 )
 
 [node name="Whey" type="Sprite" parent="."]
-position = Vector2( 43.25, -64.875 )
-scale = Vector2( 0.116319, 0.117682 )
+position = Vector2( 42, -65 )
+scale = Vector2( 0.110243, 0.115047 )
 texture = ExtResource( 1 )

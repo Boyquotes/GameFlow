@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
+"base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Scripts/Player.gd"
+"path": "res://Player.gd"
 } ]
 _global_script_class_icons={
 "GitAPI": "",
@@ -34,10 +34,6 @@ config/icon="res://icon.png"
 
 version_control_autoload_on_startup=true
 version_control_plugin_name="GitAPI"
-
-[global]
-
-back=false
 
 [gui]
 
@@ -95,5 +91,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0.72549, 0.717647, 0.52549, 1 )
 environment/default_environment="res://default_env.tres"

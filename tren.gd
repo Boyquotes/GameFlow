@@ -17,7 +17,6 @@ func _process(delta):
 	
 	
 
-
 func _on_tren_body_entered(body):
 	print(body)
 	queue_free()
