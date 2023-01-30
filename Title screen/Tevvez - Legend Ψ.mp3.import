@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Tevvez - Legend Ψ.mp3-195efa0037b79bd29c1328e0e160167c.mp3str"
+
+[deps]
+
+source_file="res://Title screen/Tevvez - Legend Ψ.mp3"
+dest_files=[ "res://.import/Tevvez - Legend Ψ.mp3-195efa0037b79bd29c1328e0e160167c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,9 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/Storm Gust.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 40
+outline_color = Color( 0.137255, 0.576471, 0.74902, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
