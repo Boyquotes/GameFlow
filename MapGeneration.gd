@@ -66,6 +66,10 @@ func _physics_process(_delta):
 		get_tree().change_scene("res://World.tscn")
 	
 	if Generating:
+		
+		if GeneratingCell.x > 60000:
+			Generating = false
+		
 		var PlacingOffsetX = 4
 		var PlacingOffsetY = randi()%5
 		var SelectionY = randi()%2
