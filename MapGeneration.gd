@@ -11,6 +11,8 @@ var GeneratingCell = Vector2(0,0)
 var Generating = false
 var SelectedColor
 
+var MiddlePlatform = Vector2(0,0)
+
 enum {
 	Purple_Part = 0,
 	Red_Part = 1,
@@ -18,11 +20,14 @@ enum {
 	Green_Part = 3,
 	Blue_Part = 4,
 	Doping_Test = 5,
+	TreeTrunk = 6,
+	Leaves = 7,
 }
 
 onready var player : KinematicBody2D = get_node("../Player")
 const tester = preload("restart.tscn")
 onready var SpawnLocation = player.position
+onready var tile_map = $"."
 
 func CreateStartPlatform(x,y):
 	CurrentPlacingPositionX += 1
@@ -34,27 +39,31 @@ func CreateStartPlatform(x,y):
 	if CurrentPlacingPositionX == StartPlatformPieces:
 		GeneratingCell = Vector2(x,y)
 		CurrentPlacingPositionX = 0
-		
+
 func CreatePart(x,y):
 	set_cell(x,y,SelectedColor)
 	
-func CreatePlatform(length,x,y):	
+func CreatePlatform(length,x,y):
 	for i in length:
 		set_cell(x + CurrentPlacingPositionX,y,SelectedColor)
 		
-		if randi()%2 == 1:
-			randomize()
-			var testcap = tester.instance()
-			get_parent().add_child(testcap)
+		if i == length/2:
 			
-			testcap.position = map_to_world(Vector2(x,y))
-		
+			MiddlePlatform = tile_map.map_to_world(Vector2(x,y))
+			
+			if randi()%5 == 1:
+				randomize()
+				var testcap = tester.instance()
+				get_parent().add_child(testcap)
+				
+				testcap.position = MiddlePlatform
+			
 		CurrentPlacingPositionX += 1
 	
 func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("r"):
-		player.position = SpawnLocation
+		get_tree().change_scene("res://World.tscn")
 	
 	if Generating:
 		var PlacingOffsetX = 4
@@ -64,8 +73,13 @@ func _physics_process(_delta):
 			CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
 			GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
 		else:
-			CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
-			GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
+			var Island = randi()%20
+			if Island == 3:
+				CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
+				GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
+			else:
+				CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
+				GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
 
 func _ready():
 	randomize()

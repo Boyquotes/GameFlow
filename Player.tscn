@@ -267,11 +267,12 @@ position = Vector2( 0, 3 )
 scale = Vector2( 1.22222, 1.66425 )
 frames = SubResource( 9 )
 animation = "Idle"
+frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.7, 0.7 )
+zoom = Vector2( 0.5, 0.5 )
 process_mode = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

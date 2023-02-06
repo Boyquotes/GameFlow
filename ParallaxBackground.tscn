@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ParallaxBackground.gd" type="Script" id=1]
-[ext_resource path="res://Version 2/Layers/foreground-empty.png" type="Texture" id=2]
+[ext_resource path="res://New Project (1).png" type="Texture" id=2]
 [ext_resource path="res://Version 2/Layers/back.png" type="Texture" id=3]
 [ext_resource path="res://Version 2/Layers/middle.png" type="Texture" id=4]
-[ext_resource path="res://images.jpg" type="Texture" id=5]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource( 1 )
@@ -13,40 +12,41 @@ script = ExtResource( 1 )
 z_index = -200
 motion_mirroring = Vector2( 1000, 0 )
 
-[node name="Sprite" type="Sprite" parent="background2"]
-position = Vector2( 500.5, 307 )
-scale = Vector2( 6.87004, 8.21795 )
-texture = ExtResource( 5 )
-
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2( 1000, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+visible = false
 position = Vector2( 184, 137 )
 scale = Vector2( 1.69643, 1 )
 texture = ExtResource( 3 )
 
 [node name="Sprite3" type="Sprite" parent="ParallaxLayer"]
+visible = false
 position = Vector2( 563, 137 )
 scale = Vector2( 1.69643, 1 )
 texture = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="ParallaxLayer"]
+visible = false
 position = Vector2( 373, 137 )
 scale = Vector2( 1.69643, 1 )
 texture = ExtResource( 3 )
 
 [node name="Sprite4" type="Sprite" parent="ParallaxLayer"]
+visible = false
 position = Vector2( 752, 137 )
 scale = Vector2( 1.69643, 1 )
 texture = ExtResource( 3 )
 
 [node name="Sprite5" type="Sprite" parent="ParallaxLayer"]
+visible = false
 position = Vector2( 926, 137 )
 scale = Vector2( 1.69643, 1 )
 texture = ExtResource( 3 )
 
 [node name="Middle" type="Sprite" parent="ParallaxLayer"]
+visible = false
 position = Vector2( 383.607, 302 )
 scale = Vector2( 1.69643, 1 )
 texture = ExtResource( 4 )
@@ -55,7 +55,7 @@ texture = ExtResource( 4 )
 motion_mirroring = Vector2( 1000, 0 )
 
 [node name="Sprite" type="Sprite" parent="background"]
-position = Vector2( 1.00003, 0 )
-scale = Vector2( 1.4811, 2.40074 )
+position = Vector2( -82, 82 )
+scale = Vector2( 1.63953, 1.52574 )
 texture = ExtResource( 2 )
 centered = false

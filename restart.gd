@@ -16,5 +16,5 @@ onready var player : KinematicBody2D = get_node("../Player")
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
-		player.position = Vector2(0,0)
+		#get_tree().change_scene("res://World.tscn")
 		queue_free()
