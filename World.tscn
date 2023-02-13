@@ -15,7 +15,7 @@
 extents = Vector2( 43, 24 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 347.875, 769 )
+extents = Vector2( 344.875, 772.5 )
 
 [node name="World" type="Node2D"]
 
@@ -61,7 +61,7 @@ scale = Vector2( 0.638889, 0.804688 )
 texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="deathwall"]
-position = Vector2( -663.125, -33 )
+position = Vector2( -660.125, -31.5 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="fallzone" to="fallzone" method="_on_fallzone_body_entered"]
