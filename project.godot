@@ -38,6 +38,7 @@ version_control_plugin_name="GitAPI"
 [global]
 
 back=false
+default=false
 
 [gui]
 
@@ -95,5 +96,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0.67451, 0.898039, 1 )
+environment/default_clear_color=Color( 0.517647, 0.517647, 0.517647, 1 )
 environment/default_environment="res://default_env.tres"

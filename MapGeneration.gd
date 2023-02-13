@@ -9,7 +9,7 @@ var CurrentPlacingPositionY = 0
 
 var GeneratingCell = Vector2(0,0)
 var Generating = false
-var SelectedColor
+var SelectedBlock = Block
 
 var MiddlePlatform = Vector2(0,0)
 
@@ -19,9 +19,10 @@ enum {
 	Orange_Part = 2,
 	Green_Part = 3,
 	Blue_Part = 4,
-	Doping_Test = 5,
-	TreeTrunk = 6,
-	Leaves = 7,
+	Doping_Test = 6,
+	TreeTrunk = 7,
+	Leaves = 8,
+	Block = 5,
 }
 
 onready var player : KinematicBody2D = get_node("../Player")
@@ -31,7 +32,7 @@ onready var tile_map = $"."
 
 func CreateStartPlatform(x,y):
 	CurrentPlacingPositionX += 1
-	set_cell(x,y,SelectedColor)
+	set_cell(x,y,SelectedBlock)
 	
 	if CurrentPlacingPositionX == 3:
 		SpawnLocation = Vector2(x,y)
@@ -41,15 +42,15 @@ func CreateStartPlatform(x,y):
 		CurrentPlacingPositionX = 0
 
 func CreatePart(x,y):
-	set_cell(x,y,SelectedColor)
+	set_cell(x,y,SelectedBlock)
 	
 func CreatePlatform(length,x,y):
 	for i in length:
-		set_cell(x + CurrentPlacingPositionX,y,SelectedColor)
+		set_cell(x + CurrentPlacingPositionX,y,SelectedBlock)
 		
 		if i == length/2:
 			
-			MiddlePlatform = tile_map.map_to_world(Vector2(x,y))
+			MiddlePlatform = tile_map.map_to_world(Vector2(x,y-1))
 			
 			if randi()%5 == 1:
 				randomize()
@@ -87,7 +88,6 @@ func _physics_process(_delta):
 
 func _ready():
 	randomize()
-	SelectedColor = randi()%5
 	Generating = true
 	for Part in StartPlatformPieces:
 		CreateStartPlatform(CurrentPlacingPositionX, StartPlatformPosition)

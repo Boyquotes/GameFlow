@@ -15,6 +15,7 @@ extents = Vector2( 43, 24 )
 [node name="World" type="Node2D"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
+visible = false
 offset = Vector2( -470, -400 )
 scale = Vector2( 1.2, 1.2 )
 transform = Transform2D( 1.2, 0, 0, 1.2, -470, -400 )
