@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Normal_Guy_Transforms_SpriteSheet.png-bf7e7adde25ec308b7e2e68f595bee93.stex"
+path="res://.import/New Project (1).png-88ede5814d1923235a8ebc15b9574dae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Super Strong Normal Guy/Normal Guy Transforms/Normal_Guy_Transforms_SpriteSheet.png"
-dest_files=[ "res://.import/Normal_Guy_Transforms_SpriteSheet.png-bf7e7adde25ec308b7e2e68f595bee93.stex" ]
+source_file="res://New Project (1).png"
+dest_files=[ "res://.import/New Project (1).png-88ede5814d1923235a8ebc15b9574dae.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

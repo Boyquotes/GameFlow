@@ -1,4 +1,4 @@
-extends Camera2D
+extends Area2D
 
 
 # Declare member variables here. Examples:
@@ -8,8 +8,15 @@ extends Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	pass # Replace with function body.
 
 
-func _process(_delta):
+func _process(delta):
 	pass
+	
+
+
+
+func _on_whey_body_entered(body):
+	print(body)
+	queue_free()
