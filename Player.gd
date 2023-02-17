@@ -1,5 +1,4 @@
 extends KinematicBody2D
-class_name Player
 enum {MOVE, CLIMB}
 #variabler
 var velocity = Vector2.ZERO
@@ -7,6 +6,9 @@ var hp = 10
 var fast_fell = false
 var state = MOVE
 onready var animatedSprite = $AnimatedSprite
+
+var Speed = 500
+var Jump = 250
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(_delta):
@@ -52,8 +54,8 @@ func move_state(input):
 	
 	var just_left_ground = not is_on_floor() and was_on_floor
 func input_jump():
-	if Input.is_action_just_pressed("ui_up"):
-		velocity.y = -250
+	if Input.is_action_pressed("ui_up"):
+		velocity.y = -Jump
 
 func apply_gravity():
 	velocity.y += 5
@@ -61,10 +63,7 @@ func apply_gravity():
 func apply_friction():
 	velocity.x = move_toward(velocity.x, 0, 10)
 func apply_acceleration(amount):
-	velocity.x = move_toward(velocity.x, 150 * amount, 10)
+	velocity.x = move_toward(velocity.x, Speed * amount, 10)
 func player_dies():
 	queue_free()
 	animatedSprite.animation = "Die"
-	
-
-	
