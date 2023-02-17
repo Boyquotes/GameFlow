@@ -12,6 +12,7 @@ var Generating = false
 var SelectedBlock = Block
 
 var MiddlePlatform = Vector2(0,0)
+var MakingIsland = false
 
 enum {
 	Purple_Part = 0,
@@ -67,21 +68,17 @@ func _physics_process(_delta):
 		get_tree().change_scene("res://World.tscn")
 	
 	if Generating:
-		
-		if GeneratingCell.x > 60000:
-			Generating = false
-		
-		var PlacingOffsetX = 4
-		var PlacingOffsetY = randi()%5
-		var SelectionY = randi()%2
-		if SelectionY == 0:
-			CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
-			GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
-		else:
-			var Island = randi()%20
-			if Island == 3:
-				CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
-				GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
+		if MakingIsland == false:
+			
+			if GeneratingCell.x > 60000:
+				Generating = false
+			
+			var PlacingOffsetX = 4
+			var PlacingOffsetY = randi()%5
+			var SelectionY = randi()%2
+			if SelectionY == 0:
+				CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
+				GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
 			else:
 				CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
 				GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)

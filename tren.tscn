@@ -4,19 +4,18 @@
 [ext_resource path="res://tren.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 16.0
-height = 34.0
+radius = 6.0
+height = 14.0
 
 [node name="tren" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 2, 49 )
+position = Vector2( 0, 12 )
 shape = SubResource( 1 )
 
 [node name="Tren" type="Sprite" parent="."]
-position = Vector2( 2, 27 )
-scale = Vector2( 0.391483, 0.439286 )
+scale = Vector2( 0.170279, 0.191072 )
 texture = ExtResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_tren_body_entered"]
