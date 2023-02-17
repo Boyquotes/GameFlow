@@ -49,6 +49,7 @@ position = Vector2( -167, -4 )
 script = ExtResource( 8 )
 
 [node name="deathwall" parent="." instance=ExtResource( 9 )]
+position = Vector2( -6, 0 )
 
 [connection signal="body_entered" from="fallzone" to="fallzone" method="_on_fallzone_body_entered"]
 [connection signal="body_entered" from="whey" to="Player" method="_on_whey_body_entered"]

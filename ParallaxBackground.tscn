@@ -19,8 +19,8 @@ position = Vector2( 500.5, 307 )
 scale = Vector2( 6.87004, 8.21795 )
 texture = ExtResource( 5 )
 
-[node name="NewProject(4)" type="Sprite" parent="background2/Sprite"]
-position = Vector2( -5.16737, 5.47582 )
+[node name="purplebackground" type="Sprite" parent="background2/Sprite"]
+position = Vector2( 267.902, -2.79875 )
 texture = ExtResource( 6 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
