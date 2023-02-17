@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ParallaxBackground.gd" type="Script" id=1]
 [ext_resource path="res://Version 2/Layers/foreground-empty.png" type="Texture" id=2]
 [ext_resource path="res://Version 2/Layers/back.png" type="Texture" id=3]
 [ext_resource path="res://Version 2/Layers/middle.png" type="Texture" id=4]
 [ext_resource path="res://images.jpg" type="Texture" id=5]
+[ext_resource path="res://New Project (4).png" type="Texture" id=6]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 script = ExtResource( 1 )
@@ -17,6 +18,10 @@ motion_mirroring = Vector2( 1000, 0 )
 position = Vector2( 500.5, 307 )
 scale = Vector2( 6.87004, 8.21795 )
 texture = ExtResource( 5 )
+
+[node name="NewProject(4)" type="Sprite" parent="background2/Sprite"]
+position = Vector2( -5.16737, 5.47582 )
+texture = ExtResource( 6 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2( 1000, 0 )
