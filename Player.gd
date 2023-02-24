@@ -6,12 +6,24 @@ var hp = 10
 var fast_fell = false
 var state = MOVE
 onready var animatedSprite = $AnimatedSprite
+onready var player = $"."
+onready var tilemap = $"../TileMap"
+onready var collision_shape = player.get_node("CollisionShape2D")
 
 var Speed = 500
 var Jump = 250
 
+var tile_index
+
 # Called when the node enters the scene tree for the first time.
-func _physics_process(_delta):
+func _physics_process(delta):
+	var new_pos = position + velocity * delta
+	var tile_pos = tilemap.world_to_map(new_pos)
+	var tile_index = tilemap.get_cellv(tile_pos)
+	if tile_index == 8:
+		get_tree().change_scene("res://World.tscn")
+
+		
 	var input = Vector2.ZERO
 	input.x = Input.get_axis("ui_left", "ui_right")
 	input.y = Input.get_axis("ui_up", "ui_down")
