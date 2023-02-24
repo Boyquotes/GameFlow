@@ -2,9 +2,11 @@ extends KinematicBody2D
 enum {MOVE, CLIMB}
 #variabler
 var velocity = Vector2.ZERO
-var hp = 10
+var hp = 100
 var fast_fell = false
 var state = MOVE
+var pills = 0
+var whey = 0
 onready var animatedSprite = $AnimatedSprite
 
 var Speed = 500
@@ -17,7 +19,8 @@ func _physics_process(_delta):
 	input.y = Input.get_axis("ui_up", "ui_down")
 	match state:
 		MOVE: move_state(input)
-	
+	if hp == 0:
+		player_dies()
 func move_state(input):	
 	
 	apply_gravity() #apply gravity function makes it so if character isnt on floor or a ladder they fall.

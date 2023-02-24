@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tren.png" type="Texture" id=1]
 [ext_resource path="res://GUI.gd" type="Script" id=2]
 [ext_resource path="res://whey.png" type="Texture" id=3]
 [ext_resource path="res://new_dynamicfont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://HealthBar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Theme" id=2]
 default_font = ExtResource( 4 )
@@ -31,13 +32,6 @@ margin_right = 714.0
 margin_bottom = 415.0
 color = Color( 0.262745, 0.262745, 0.262745, 1 )
 
-[node name="ColorRect5" type="ColorRect" parent="."]
-margin_left = 1.0
-margin_top = 391.0
-margin_right = 71.0
-margin_bottom = 415.0
-color = Color( 0.262745, 0.262745, 0.262745, 1 )
-
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -45,17 +39,6 @@ margin_top = -102.0
 margin_right = 61.0
 rect_scale = Vector2( 0.743, 0.518 )
 theme = SubResource( 2 )
-
-[node name="HP" type="RichTextLabel" parent="."]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = -25.0
-margin_right = 66.0
-margin_bottom = 37.0
-rect_scale = Vector2( 0.743, 0.518 )
-theme = SubResource( 2 )
-text = "HP"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 anchor_left = 0.387
@@ -130,11 +113,8 @@ margin_top = 10.0
 margin_right = 82.0
 margin_bottom = 10.0
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-modulate = Color( 0.243137, 1, 0, 1 )
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 81.0
+[node name="PlayerHealthBar" parent="." instance=ExtResource( 5 )]
+margin_left = 9.0
 margin_top = -17.0
-margin_right = 249.0
-margin_bottom = -1.0
+margin_right = 329.0
+margin_bottom = 223.0
