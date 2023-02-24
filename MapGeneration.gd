@@ -9,10 +9,16 @@ var CurrentPlacingPositionY = 0
 
 var GeneratingCell = Vector2(0,0)
 var Generating = false
-var SelectedBlock = Block
+var SelectedBlock = Purple_Part
+var PlacingOffsetX = 5
+var PlacingOffsetY = 5
 
-var MiddlePlatform = Vector2(0,0)
-var MakingIsland = false
+var LastPlacedXBlock = 0
+var LastPlacedYBlock = 0
+
+var debounce = false
+
+var mydata = {}
 
 enum {
 	Purple_Part = 0,
@@ -26,10 +32,13 @@ enum {
 	Block = 5,
 }
 
+var platformarray = []
+
 onready var player : KinematicBody2D = get_node("../Player")
 const tester = preload("restart.tscn")
 onready var SpawnLocation = player.position
 onready var tile_map = $"."
+onready var fallzone = $"../fallzone"
 
 func CreateStartPlatform(x,y):
 	CurrentPlacingPositionX += 1
@@ -49,16 +58,11 @@ func CreatePlatform(length,x,y):
 	for i in length:
 		set_cell(x + CurrentPlacingPositionX,y,SelectedBlock)
 		
-		if i == length/2:
-			
-			MiddlePlatform = tile_map.map_to_world(Vector2(x,y-1))
-			
-			if randi()%5 == 1:
-				randomize()
-				var testcap = tester.instance()
-				get_parent().add_child(testcap)
+		LastPlacedXBlock = x
+		var randomnum = randi()%7
+		if randomnum == 2:
+			set_cell(x+ CurrentPlacingPositionX, y-1, 8)
 				
-				testcap.position = MiddlePlatform
 			
 		CurrentPlacingPositionX += 1
 	
@@ -68,20 +72,52 @@ func _physics_process(_delta):
 		get_tree().change_scene("res://World.tscn")
 	
 	if Generating:
-		if MakingIsland == false:
+		if debounce == false:
+			#randomize()
+			if CurrentPlacingPositionX == 0:
+				var PlacingOffsetY = randi()%5
+				var SelectionY = randi()%2
+				
+				for i in 5:
+					#randomize()
+					if SelectionY == 0:
+						CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
+						GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
+					else:
+						CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
+						GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
+						
+			var PlayerPos = player.position
+			var DistanceX = CurrentPlacingPositionX - world_to_map(player.position).x
 			
-			if GeneratingCell.x > 60000:
-				Generating = false
-			
-			var PlacingOffsetX = 4
-			var PlacingOffsetY = randi()%5
-			var SelectionY = randi()%2
-			if SelectionY == 0:
-				CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
-				GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
-			else:
-				CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
-				GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
+			if DistanceX < 11:
+				var PlacingOffsetY = randi()%4
+				var SelectionY = randi()%2
+				
+				#print("Generated Next Path | Ends at ", GeneratingCell, " | You are at ",world_to_map(player.position))
+				
+				for i in 5:
+					#randomize()
+					if SelectionY == 0:
+						CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
+						
+						platformarray.append(Vector2(GeneratingCell.x, GeneratingCell.y-1))
+						
+						GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
+						
+					else:
+						if map_to_world(GeneratingCell).y > fallzone.position.y:
+							CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
+							platformarray.append(Vector2(GeneratingCell.x, GeneratingCell.y-1))
+							
+							# offsett for neste platform
+							GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y + PlacingOffsetY)
+						else:
+							CreatePlatform(randi()%9,GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
+							platformarray.append(Vector2(GeneratingCell.x, GeneratingCell.y-1))
+							
+							# offset for neste platform
+							GeneratingCell = Vector2(GeneratingCell.x + PlacingOffsetX, GeneratingCell.y - PlacingOffsetY)
 
 func _ready():
 	randomize()

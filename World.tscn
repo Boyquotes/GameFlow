@@ -45,7 +45,7 @@ position = Vector2( -3, 0 )
 shape = SubResource( 1 )
 
 [node name="whey" parent="." instance=ExtResource( 7 )]
-position = Vector2( -167, -4 )
+position = Vector2( -150, -111 )
 script = ExtResource( 8 )
 
 [connection signal="body_entered" from="fallzone" to="fallzone" method="_on_fallzone_body_entered"]
