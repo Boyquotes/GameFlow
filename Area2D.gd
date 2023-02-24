@@ -28,5 +28,5 @@ func _process(delta):
 	position += velocity
 	print(player.position.distance_to(deathwall.position))
 	if player.position.distance_to(deathwall.position) >= reset_distance:
-		deathwall.position.x = player.position.x - 50
+		deathwall.position.x = player.position.x - 150
 

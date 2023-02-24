@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://TileTextures.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MapGeneration.gd" type="Script" id=3]
+[ext_resource path="res://ParallaxBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tren.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fallzone.gd" type="Script" id=6]
+[ext_resource path="res://whey.tscn" type="PackedScene" id=7]
+[ext_resource path="res://whey.gd" type="Script" id=8]
+[ext_resource path="res://deathwall.tscn" type="PackedScene" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 43, 24 )
+
+[node name="World" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
+offset = Vector2( -470, -400 )
+scale = Vector2( 1.2, 1.2 )
+transform = Transform2D( 1.2, 0, 0, 1.2, -470, -400 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+show_collision = true
+collision_use_kinematic = true
+format = 1
+script = ExtResource( 3 )
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource( 2 )]
+
+[node name="tren" parent="." instance=ExtResource( 5 )]
+position = Vector2( -165, -119 )
+
+[node name="fallzone" type="Area2D" parent="."]
+position = Vector2( 55, 553 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fallzone"]
+position = Vector2( -3, 0 )
+shape = SubResource( 1 )
+
+[node name="whey" parent="." instance=ExtResource( 7 )]
+position = Vector2( -167, -4 )
+script = ExtResource( 8 )
+
+[node name="deathwall" parent="." instance=ExtResource( 9 )]
+position = Vector2( -6, 0 )
+
+[connection signal="body_entered" from="fallzone" to="fallzone" method="_on_fallzone_body_entered"]
+[connection signal="body_entered" from="whey" to="Player" method="_on_whey_body_entered"]
+[connection signal="body_entered" from="whey" to="whey" method="_on_whey_body_entered"]
