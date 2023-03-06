@@ -140,7 +140,7 @@ texture = ExtResource( 5 )
 position = Vector2( 760, 249 )
 scale = Vector2( 24.5353, 24.105 )
 frames = SubResource( 28 )
-frame = 14
+frame = 22
 playing = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -170,7 +170,7 @@ text = "Quit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -43.029
+volume_db = -41.893
 pitch_scale = 0.85
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
