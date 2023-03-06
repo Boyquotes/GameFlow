@@ -27,15 +27,8 @@ cell_size = Vector2( 16, 16 )
 show_collision = true
 collision_use_kinematic = true
 format = 1
+tile_data = PoolIntArray( -1179659, 0, 0, -524275, 8, 0, -458741, 8, 0, -458740, 8, 0, -458736, 4, 0, -458732, 4, 0, -458731, 4, 0, -393207, 8, 0, -393206, 8, 0, -393205, 8, 0, -393200, 4, 0, -393199, 4, 0, -393198, 4, 0, -393197, 4, 0, -393196, 4, 0, -262128, 9, 0, -262127, 9, 0, -262126, 9, 0, -262125, 9, 0, -262124, 9, 0, -196602, 8, 0, -196601, 8, 0, -196600, 8, 0, -196599, 8, 0, -196598, 8, 0, -196597, 8, 0, -196596, 8, 0 )
 script = ExtResource( 3 )
-
-[node name="Player" parent="." groups=["player"] instance=ExtResource( 2 )]
-
-[node name="GUI" parent="Player" instance=ExtResource( 10 )]
-margin_left = -358.0
-margin_top = -210.0
-margin_right = 359.0
-margin_bottom = 206.0
 
 [node name="tren" parent="." instance=ExtResource( 5 )]
 position = Vector2( -165, -119 )
@@ -57,6 +50,14 @@ script = ExtResource( 8 )
 
 [node name="deathwall" parent="." instance=ExtResource( 9 )]
 position = Vector2( -6, 0 )
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource( 2 )]
+
+[node name="GUI" parent="Player" instance=ExtResource( 10 )]
+margin_left = -358.0
+margin_top = -210.0
+margin_right = 359.0
+margin_bottom = 206.0
 
 [connection signal="body_entered" from="fallzone" to="fallzone" method="_on_fallzone_body_entered"]
 [connection signal="body_entered" from="whey" to="Player" method="_on_whey_body_entered"]

@@ -12,8 +12,8 @@ onready var player = $"."
 onready var tilemap = $"../TileMap"
 onready var collision_shape = player.get_node("CollisionShape2D")
 
-var Speed = 500
-var Jump = 250
+var Speed = 195
+var Jump = 300
 
 var tile_index
 
