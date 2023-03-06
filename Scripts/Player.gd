@@ -3,9 +3,11 @@ class_name Player
 enum {MOVE, CLIMB}
 #variabler
 var velocity = Vector2.ZERO
-var hp = 10
+var hp = 100
 var fast_fell = false
 var state = MOVE
+export var pills = 0
+export var whey = 0
 onready var animatedSprite = $AnimatedSprite
 
 # Called when the node enters the scene tree for the first time.

@@ -20,4 +20,5 @@ func _process(_delta):
 
 func _on_tren_body_entered(body):
 	print(body)
+	body.pills += 1
 	queue_free()
