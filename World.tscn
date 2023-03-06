@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TileTextures.tres" type="TileSet" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://whey.tscn" type="PackedScene" id=7]
 [ext_resource path="res://whey.gd" type="Script" id=8]
 [ext_resource path="res://deathwall.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 43, 24 )
@@ -29,6 +30,12 @@ format = 1
 script = ExtResource( 3 )
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource( 2 )]
+
+[node name="GUI" parent="Player" instance=ExtResource( 10 )]
+margin_left = -358.0
+margin_top = -210.0
+margin_right = 359.0
+margin_bottom = 206.0
 
 [node name="tren" parent="." instance=ExtResource( 5 )]
 position = Vector2( -165, -119 )
